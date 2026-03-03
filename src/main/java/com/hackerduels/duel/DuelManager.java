@@ -7,6 +7,7 @@ import com.hackerduels.arena.ArenaManager;
 import com.hackerduels.arena.AnticheatType;
 import com.hackerduels.config.PluginConfig;
 import org.bukkit.Bukkit;
+import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -97,8 +98,8 @@ public class DuelManager implements Listener {
             if (loserP != null) loserP.sendMessage(config.getMessage("duel_lose"));
         }
 
-        Location ret1 = duel.getPlayer1ReturnLoc();
-        Location ret2 = duel.getPlayer2ReturnLoc();
+        Location ret1 = applyReturnWorld(duel.getPlayer1ReturnLoc());
+        Location ret2 = applyReturnWorld(duel.getPlayer2ReturnLoc());
         if (ret1 != null && ret1.getWorld() != null && p1 != null && p1.isOnline()) {
             p1.teleport(ret1);
             p1.getInventory().clear();
@@ -144,5 +145,14 @@ public class DuelManager implements Listener {
 
     public Duel getDuel(UUID uuid) {
         return activeDuels.get(uuid);
+    }
+
+    private Location applyReturnWorld(Location loc) {
+        if (loc == null) return null;
+        String worldName = config.getReturnSpawnWorld();
+        if (worldName == null || worldName.isBlank()) return loc;
+        var world = Bukkit.getWorld(worldName);
+        if (world == null) return loc;
+        return world.getSpawnLocation();
     }
 }

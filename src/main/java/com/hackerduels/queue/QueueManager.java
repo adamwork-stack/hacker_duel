@@ -90,7 +90,7 @@ public class QueueManager {
     }
 
     private void expireChallenges() {
-        var toRemove = new java.util.ArrayList<DuelRequest>();
+        var toRemove = new java.util.HashSet<DuelRequest>();
         for (DuelRequest req : pendingChallenges.values()) {
             if (req.isExpired()) toRemove.add(req);
         }
