@@ -1,0 +1,26 @@
+name: HackerDuels
+version: ${version}
+main: com.hackerduels.HackerDuelsPlugin
+api-version: "1.21"
+description: Lightweight 1v1 hacker duels with anticheat selection
+author: HackerDuels
+softdepend:
+  - GrimAC
+commands:
+  duel:
+    description: Main duel commands - challenge, queue, leave, accept, decline
+  dueladmin:
+    description: Admin commands - create arena, set spawns, reload
+permissions:
+  hackerduels.challenge:
+    description: Allows challenging players to duels
+    default: true
+  hackerduels.queue:
+    description: Allows joining matchmaking queue
+    default: true
+  hackerduels.leave:
+    description: Allows leaving queue or declining challenges
+    default: true
+  hackerduels.admin:
+    description: Full admin access to duel management
+    default: op

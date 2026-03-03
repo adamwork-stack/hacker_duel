@@ -1,0 +1,40 @@
+# HackerDuels Configuration
+
+# Number of arena instances per anticheat type
+arenas:
+  none: 4
+  grim: 4
+
+# Seconds for target to accept a direct challenge
+queue_timeout: 30
+
+# Seconds between matchmaking queue checks
+matchmaking_check_interval: 2
+
+# Spawn world when returning players after duel (leave empty for world they came from)
+return_spawn_world: ""
+
+messages:
+  challenge_sent: "&aChallenge sent to %player%! (%anticheat% duel)"
+  challenge_received: "&e%player% challenged you to a %anticheat% duel! Use /duel accept or /duel decline"
+  challenge_accepted: "&a%player% accepted your challenge! Starting duel..."
+  challenge_declined: "&c%player% declined your challenge."
+  challenge_expired: "&cYour challenge has expired."
+  challenge_self: "&cYou cannot challenge yourself."
+  challenge_in_duel: "&cYou or the target is already in a duel."
+  challenge_in_queue: "&cYou or the target is already in queue."
+  queue_joined: "&aJoined %anticheat% matchmaking queue. Use /duel leave to exit."
+  queue_left: "&aLeft the queue."
+  queue_not_in: "&cYou are not in the queue."
+  duel_start: "&aDuel starting! Good luck!"
+  duel_win: "&aYou won the duel!"
+  duel_lose: "&cYou lost the duel."
+  no_arena: "&cNo arena available. Try again later."
+  no_pending_challenge: "&cYou have no pending challenge."
+  player_offline: "&cThat player is offline."
+  invalid_anticheat: "&cInvalid anticheat type. Use: grim, none"
+  no_permission: "&cYou don't have permission to do that."
+  admin_arena_created: "&aArena %id% (%type%) created."
+  admin_spawn_set: "&aSpawn %num% set for arena %id%."
+  admin_reload: "&aConfig reloaded."
+  admin_arena_not_found: "&cArena not found."
